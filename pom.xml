@@ -25,13 +25,36 @@
 
 
 		</dependency>
-		
-		<dependency>
-    <groupId>org.hamcrest</groupId>
-    <artifactId>hamcrest</artifactId>
-    <version>3.0</version>
-    
-</dependency>
 
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest</artifactId>
+			<version>3.0</version>
+
+		</dependency>
+
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>7.34.3</version>
+
+		</dependency>
+
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<version>7.34.3</version>
+
+		</dependency>
+
+
+		<dependency>
+		
+		<groupId>org.apache.groovy</groupId>
+		<artifactId>groovy</artifactId>
+		<version>5.0.5</version>
+		<scope>compile</scope>
+		
+		</dependency>
 	</dependencies>
 </project>
