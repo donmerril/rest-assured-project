@@ -27,7 +27,25 @@ public class Basics {
 				.asString();
 
 		
+		JsonPath js = new JsonPath(response);
+		String placeID = js.getString("place_id");
 
+		String address = "70 Summer Walk, USA";
+
+		// update place
+		given().log().all().queryParam("key", "qaclick123").header("Content-Type", "application/json")
+				.body("{\n" + "  \"place_id\": \"" + placeID + "\",\n" + "  \"address\": \"" + address + "\",\n"
+						+ "  \"key\": \"qaclick123\"\n" + "}")
+				.put("maps/api/place/update/json").then().log().all().statusCode(200)
+				.body("msg", equalTo("Address successfully updated"));
+
+		// add place -> update place-> get place to validate if updated place is present
+		// in the response
+
+		// getPlace
+
+		given().queryParam("key", "qaclick123").queryParam("place_id", placeID).when().get("maps/api/place/get/json")
+				.then().log().all().statusCode(200).body("address", equalTo(address));
 	}
 
 }
