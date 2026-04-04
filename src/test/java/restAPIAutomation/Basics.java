@@ -7,7 +7,7 @@ import io.restassured.path.json.JsonPath;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
-import Payloads.AddPlace;
+import Payloads.Payload;
 
 public class Basics {
 
@@ -22,7 +22,7 @@ public class Basics {
 
 		RestAssured.baseURI = "https://rahulshettyacademy.com";
 		String response = given().log().all().queryParam("key", "qaclick123").header("Content-Type", "application/json")
-				.body(AddPlace.addPlacePayload()).when().post("maps/api/place/add/json").then().log().all()
+				.body(Payload.addPlacePayload()).when().post("maps/api/place/add/json").then().log().all()
 				.statusCode(200).body("scope", equalTo("APP")).header("server", "Apache/2.4.52 (Ubuntu)").extract()
 				.asString();
 
