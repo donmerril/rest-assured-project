@@ -7,12 +7,14 @@ import io.restassured.path.json.JsonPath;
 
 public class ComplexJsonParse {
 
-	// print number of courses offered
-	// print purchase amount
-	// print first course
-	// print title and prices of all courses
-	// print number of copies from the RPA course
-	// Verify if sum of all course prices matches with purchase amount
+	/*
+	Implement JsonPath parsing to:
+		- Read course count and purchase amount
+		- Print course titles and prices
+		- Retrieve RPA course copies
+		- Validate purchase amount equals sum(price × copies)
+		
+		*/
 
 	public static void main(String[] args) {
 
