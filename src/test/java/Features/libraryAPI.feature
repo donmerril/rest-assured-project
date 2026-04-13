@@ -2,7 +2,7 @@ Feature: Validating Books  API
 
 This feature covers adding muitple books to the library system,
 verifying that all books are added successfully,
-and also supports updating and deleting books.
+retrieved and deleted.
 
 
 Scenario: Verify multiple books are successfully added using Add Book API
@@ -19,7 +19,11 @@ When User calls the "GetBook" Api
 Then "GetBook" Api Response is successful
 
 
+Scenario: Verify added books can be deleted using deleteBook API
 
+Given the "DeleteBook" Properties And Payload are Ready
+When User calls the "DeleteBook" Api
+Then "DeleteBook" Api Response is successful
 
 
 

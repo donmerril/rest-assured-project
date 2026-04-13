@@ -19,12 +19,11 @@ public class DynamicJson {
 
 	public static Set<String> bookIDs = new HashSet();
 	public static List<Response> addBookResponses = new ArrayList<>();
-	
-	
+	public static int count;
 
 	public static AddBookResult addBookAPI(ConfigReader config) {
 
-		int count = Integer.parseInt(config.getProperty("books.count"));
+		count = Integer.parseInt(config.getProperty("books.count"));
 
 		for (int i = 1; i <= count; i++) {
 
@@ -67,6 +66,25 @@ public class DynamicJson {
 
 		return responses;
 
+	}
+
+	public static List<Response> deleteBook() {
+
+		List<Response> responses = new ArrayList<>();
+		
+		for (String IDs : bookIDs) {
+
+			
+			Response response = given().body(Payload.deleteBook(IDs)).when().delete("/Library/DeleteBook.php").then()
+					.extract().response();
+			
+			responses.add(response);
+			
+			
+
+		}
+
+		return responses;
 	}
 
 }
