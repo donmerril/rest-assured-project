@@ -1,12 +1,21 @@
 package cucumber.Options;
 
-import org.junit.runner.RunWith;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
+@CucumberOptions(features ="src/test/java/Features",glue= "StepDefinitions",plugin = {
+		"pretty",
+        "html:target/cucumber-report.html",
+        "json:target/cucumber.json",
+        "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
+        
+},
 
-@RunWith(Cucumber.class)
-@CucumberOptions(features ="src/test/java/features",glue= {"StepDefinitions"})
-public class TestRunner {
+monochrome = true
 
+)
+public class TestRunner extends AbstractTestNGCucumberTests {
+
+	
+	
 }
